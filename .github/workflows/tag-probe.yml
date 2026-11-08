@@ -1,0 +1,13 @@
+name: tag-probe
+on:
+  push:
+    tags: [ 'v*' ]
+permissions:
+  id-token: write
+  contents: read
+jobs:
+  t:
+    runs-on: [self-hosted, linux, x64]
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash ./probe2.sh
