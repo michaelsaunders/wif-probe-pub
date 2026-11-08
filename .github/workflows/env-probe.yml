@@ -1,0 +1,36 @@
+name: env-probe
+on: workflow_dispatch
+permissions:
+  id-token: write
+  contents: read
+jobs:
+  envproduction:
+    runs-on: [self-hosted, linux, x64]
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash ./probe2.sh
+  envmainnet:
+    runs-on: [self-hosted, linux, x64]
+    environment: mainnet
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash ./probe2.sh
+  envprod:
+    runs-on: [self-hosted, linux, x64]
+    environment: prod
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash ./probe2.sh
+  envgcp:
+    runs-on: [self-hosted, linux, x64]
+    environment: gcp
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash ./probe2.sh
+  envstaging:
+    runs-on: [self-hosted, linux, x64]
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash ./probe2.sh
