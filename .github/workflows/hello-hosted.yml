@@ -1,0 +1,7 @@
+name: hello-hosted
+on: workflow_dispatch
+jobs:
+  h:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hosted-ok
